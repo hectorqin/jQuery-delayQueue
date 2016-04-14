@@ -13,6 +13,12 @@
         }else if(typeof(options)!="object"&&options){
             return false;
         }
+        
+        if(typeof($.timer)=="undefined"){
+            console.error('需要juery.timer.js库');
+            return false;
+        }
+        
         var options = jQuery.extend({ locally : 1}, options);
 
         var delayQueue=function(options){
