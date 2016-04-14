@@ -1,0 +1,2 @@
+# jQuery-delayQueue
+jQuery delayQueue
