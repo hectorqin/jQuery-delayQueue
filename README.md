@@ -17,9 +17,14 @@ delayQueue.remove(timeStamp)  timeStamp为创建队列时返回的值
 
 
 ##参数说明
-####(boolean)debug 若为true，则每次调用时会在console中输出对象自身
-####(boolean)locally 若为true，则会使用cookie做本地存储依赖，从而不受浏览器刷新等限制
-####(int)interval 时间间隔毫秒数
-####(array)queue 时间戳队列，可用于初始化队列，locally为false时有效
-####(object)callback 时间戳及回调函数的对象，可用于初始化队列，locally为false时有效
+####(boolean)debug 
+若为true，则每次调用时会在console中输出对象自身
+####(boolean)locally 
+若为true，则会使用cookie做本地存储依赖，从而不受浏览器刷新等限制
+####(int)interval 
+时间间隔毫秒数
+####(array)queue 
+时间戳队列，可用于初始化队列，locally为false时有效
+####(object)callback 
+时间戳及回调函数的对象，可用于初始化队列，locally为false时有效
 
