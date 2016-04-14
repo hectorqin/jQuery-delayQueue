@@ -5,7 +5,6 @@
  * @website http://hectorq.me
  * @license MIT 
  */
-
 (function($) {
     jQuery.delayQueue = function(options) {
         // Create options for the default locally value
