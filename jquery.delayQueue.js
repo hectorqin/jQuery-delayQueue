@@ -26,6 +26,7 @@
 			this.callback =options.callback||{};
 			this.interval =options.interval||5000;
 			this.debug    =options.debug||0;  //debug
+			this.locally  =options.locally;
 			this.runtimes =0;
 
 			this.init = function(){
@@ -75,23 +76,23 @@
 
 			this.localize = function(type){
 				if(type){
-					if(!options.locally){
+					if(!this.locally){
 						return ;
 					}
 					var obj={
 						'queue':this.queue,
 						'callback':this.callback
 					}
-					if(options.locally==1){
-						this.setCookie('delayQueue',JSON.stringify(obj))
+					if(this.locally==1){
+						this.setCookie('delayQueue',JSON.stringify(obj),1)
 					}else{
 						this.setStorage('delayQueue',JSON.stringify(obj));
 					}
 				}else{
-					if(!options.locally){
+					if(!this.locally){
 						return ;
 					}
-					var obj=(options.locally==1)?this.getCookie('delayQueue'):this.getStorage('delayQueue');
+					var obj=(this.locally==1)?this.getCookie('delayQueue'):this.getStorage('delayQueue');
 					obj=obj?JSON.parse(obj):{"queue":[],"callback":{}};
 					this.queue=obj.queue;
 					this.callback=obj.callback;
@@ -154,14 +155,6 @@
 
 			this.resume = function(){
 				return this.timer.resume();
-			};
-
-			this.sleep = function(sleepTime){
-				if(typeof(sleep)=='function'){
-					sleep(sleepTime);
-				}else{
-					for(var start = Date.now(); Date.now() - start <= sleepTime; ) { }
-				}
 			};
 
 			//判断是否有队列需要出栈
